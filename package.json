@@ -2,12 +2,14 @@
   "name": "creative-coding",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://betsey.win/creative-coding",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/p5": "^0.9.1",
     "classnames": "^2.2.6",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "p5": "^1.1.9",
     "react": "^17.0.1",
@@ -18,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
