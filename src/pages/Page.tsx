@@ -1,8 +1,7 @@
 import React, { Fragment, FC } from 'react';
-import Block from './Block.tsx';
-import { setup } from './common.ts';
+import Block from './Block';
+import { setup } from './common';
 import p5 from 'p5';
-import { render } from 'react-dom';
 
 type RenderFunction = (p: p5) => void;
 

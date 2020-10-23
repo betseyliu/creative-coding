@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect } from 'react';
 import styles from './index.module.scss';
-import p5 from 'p5/lib/p5';
+import p5 from 'p5';
 
 interface BlockProps {
   name: string;
@@ -9,8 +9,8 @@ interface BlockProps {
 const Block: FC<BlockProps> = ({ name = '', sketch = () => {} }) => {
   const $box = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    new p5(sketch, $box.current);
-  }, []);
+    new p5(sketch, $box.current as HTMLElement);
+  }, [sketch]);
   return (
     <div>
       <h3 className={styles.title}>{name}</h3>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import styles from './App.module.scss';
 import classNames from 'classnames';
-import Point from './pages/Point.tsx';
+import Point from './pages/Point';
 
 const PAGES = {
   Point: <Point />,
@@ -19,6 +18,7 @@ const PAGES = {
 
 function App() {
   const [activePage, setActivePage] = useState('Point');
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -44,7 +44,9 @@ function App() {
           </li>
         ))}
       </ul>
-      <div className={styles.content}>{PAGES[activePage]}</div>
+      <div className={styles.content}>
+        <Point />
+      </div>
     </div>
   );
 }

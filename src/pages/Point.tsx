@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import Page from './Page.tsx';
+import Page from './Page';
 import p5 from 'p5';
-import { VisualPoint } from '../Libs/point.ts';
+import { VisualPoint } from '../libs/point';
 const POINT_NUM = 1000;
 
 const RandomPoints = {
