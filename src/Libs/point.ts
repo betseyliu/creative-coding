@@ -12,6 +12,21 @@ export class Point {
   copy(): Point {
     return new Point(this.x, this.y);
   }
+
+  // 两点之间的距离
+  distance(p: Point): number {
+    const dx = p.x - this.x;
+    const dy = p.y - this.y;
+    return Math.sqrt(dx ** 2 + dy ** 2);
+  }
+
+  // 绕着某个点旋转
+  rotate(p: Point, radian: number) {
+    const dx = this.x - p.x;
+    const dy = this.y - p.y;
+    this.x = p.x + Math.cos(radian) * dx - Math.sin(radian) * dy;
+    this.y = p.y + Math.sin(radian) * dx + Math.cos(radian) * dy;
+  }
 }
 
 export class VisualPoint extends Point {
