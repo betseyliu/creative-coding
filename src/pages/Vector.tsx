@@ -13,7 +13,7 @@ const blocks = [
       for (let i = 0; i < P_NUM; i++) {
         const x = p.random(p.width);
         const y = p.random(p.height);
-        particles[i] = new VisualParticle(x, y);
+        particles[i] = new VisualParticle(x, y, p.color('#ddd'), 1);
       }
       for (let time = 0; time < 100; time++) {
         particles.forEach((particle) => {
@@ -34,7 +34,7 @@ const blocks = [
       for (let i = 0; i < P_NUM; i++) {
         const x = p.random(p.width);
         const y = p.random(p.height);
-        particles[i] = new VisualParticle(x, y);
+        particles[i] = new VisualParticle(x, y, p.color('#ddd'), 1);
       }
       const acctractor = new Attractor(p.width / 2, p.height / 2, 1); // mag is positive means the acctraction is gravitation
       for (let time = 0; time < 100; time++) {
@@ -54,7 +54,7 @@ const blocks = [
       for (let i = 0; i < P_NUM; i++) {
         const x = p.random(p.width);
         const y = p.random(p.height);
-        particles[i] = new VisualParticle(x, y);
+        particles[i] = new VisualParticle(x, y, p.color('#ddd'), 1);
       }
       const acctractor = new Attractor(p.width / 2, p.height / 2, -1); // mag is negative means the acctraction is repulsion
       for (let time = 0; time < 100; time++) {
@@ -74,7 +74,7 @@ const blocks = [
       for (let i = 0; i < P_NUM; i++) {
         const x = p.random(p.width);
         const y = p.random(p.height);
-        particles[i] = new VisualParticle(x, y);
+        particles[i] = new VisualParticle(x, y, p.color('#ddd'), 1);
       }
       const attractors: Attractor[] = [];
       for (let i = 0; i < 4; i++) {
@@ -103,7 +103,7 @@ const blocks = [
       for (let i = 0; i < P_NUM; i++) {
         const x = p.random(p.width);
         const y = p.height / 2;
-        particles[i] = new VisualParticle(x, y);
+        particles[i] = new VisualParticle(x, y, p.color('#ddd'), 1);
       }
       const attractors: Attractor[] = [];
       for (let i = 0; i < 10; i++) {
@@ -113,7 +113,7 @@ const blocks = [
         attractors[i] = new Attractor(x, y, mag);
       }
 
-      for (let time = 0; time < 500; time++) {
+      for (let time = 0; time < 200; time++) {
         particles.forEach((particle) => {
           const attractor = attractors[~~p.random(0, attractors.length - 1)];
           const force = attractor.force(particle.position);

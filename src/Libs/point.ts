@@ -21,11 +21,16 @@ export class Point {
   }
 
   // 绕着某个点旋转
-  rotate(p: Point, radian: number) {
+  rotate(p: Point, radian: number): Point {
     const dx = this.x - p.x;
     const dy = this.y - p.y;
     this.x = p.x + Math.cos(radian) * dx - Math.sin(radian) * dy;
     this.y = p.y + Math.sin(radian) * dx + Math.cos(radian) * dy;
+    return new Point(this.x, this.y);
+  }
+  // 与点p之间的插值点
+  lerp(p: Point, t: number): Point {
+    return new Point(this.x + t * (p.x - this.x), this.y + t * (p.y - this.y));
   }
 }
 

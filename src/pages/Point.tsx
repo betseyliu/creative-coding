@@ -213,7 +213,7 @@ const linksRotateAroundPrevious = {
 
     // 旋转规则
     for (let time = 0; time < 20; time++) {
-      points.map((point, index) => {
+      points.forEach((point, index) => {
         const next = (index + 1) % points.length;
         point.rotate(points[next], 0.01);
       });

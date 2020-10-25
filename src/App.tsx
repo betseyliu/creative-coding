@@ -3,11 +3,12 @@ import styles from './App.module.scss';
 import classNames from 'classnames';
 import Point from './pages/Point';
 import Vector from './pages/Vector';
+import Line from './pages/Line';
 
 const pages = {
   Point: () => <Point />,
   Vector: () => <Vector />,
-  // Line: undefined,
+  Line: () => <Line />,
   // Circle: undefined,
   // Triangle: undefined,
   // Rectangle: undefined,
@@ -18,7 +19,7 @@ const pages = {
 };
 
 function App() {
-  const [activePage, setActivePage] = useState('Vector');
+  const [activePage, setActivePage] = useState('Line');
 
   console.log(activePage);
 

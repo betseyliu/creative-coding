@@ -30,21 +30,21 @@ export class Vector {
   add(v: Vector): Vector {
     this.x += v.x;
     this.y += v.y;
-    return this;
+    return new Vector(this.x, this.y);
   }
 
   // 减
   sub(v: Vector): Vector {
     this.x -= v.x;
     this.y -= v.y;
-    return this;
+    return new Vector(this.x, this.y);
   }
 
   // 数乘
   multi(a: number): Vector {
     this.x *= a;
     this.y *= a;
-    return this;
+    return new Vector(this.x, this.y);
   }
 
   // 数除
@@ -52,7 +52,7 @@ export class Vector {
     if (a === 0) throw new Error('cannot divide zero');
     this.x /= a;
     this.y /= a;
-    return this;
+    return new Vector(this.x, this.y);
   }
 
   // 点乘
@@ -81,15 +81,12 @@ export class Vector {
   rotate(a: number): Vector {
     this.x = Math.cos(a) * this.x - Math.sin(a) * this.y;
     this.y = Math.sin(a) * this.x + Math.cos(a) * this.y;
-    return this;
+    return new Vector(this.x, this.y);
   }
 
   // 垂直
   perpendicular(): Vector {
-    const temp = this.x;
-    this.x = -this.y;
-    this.y = temp;
-    return this;
+    return new Vector(-this.y, this.x);
   }
 
   // 两向量的距离

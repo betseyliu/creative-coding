@@ -52,26 +52,24 @@ export class Attractor {
 }
 
 export class VisualParticle extends Particle {
-  color: string;
+  color: Color;
   weight: number;
   constructor(
     x: number,
     y: number,
+    c: Color,
+    w: number,
     {
       mass = 1,
       maxSpeed = 1,
-      color = '#bbb',
-      weight = 1,
     }: {
       mass?: number;
       maxSpeed?: number;
-      color?: string;
-      weight?: number;
     } = {}
   ) {
     super(x, y, { mass, maxSpeed });
-    this.color = color;
-    this.weight = weight;
+    this.color = c;
+    this.weight = w;
   }
 
   display(p: p5) {
