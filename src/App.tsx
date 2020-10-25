@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import styles from './App.module.scss';
 import classNames from 'classnames';
 import Point from './pages/Point';
+import Vector from './pages/Vector';
 
-const PAGES = {
-  Point: <Point />,
-  // Vector: undefined,
+const pages = {
+  Point: () => <Point />,
+  Vector: () => <Vector />,
   // Line: undefined,
   // Circle: undefined,
   // Triangle: undefined,
@@ -17,7 +18,9 @@ const PAGES = {
 };
 
 function App() {
-  const [activePage, setActivePage] = useState('Point');
+  const [activePage, setActivePage] = useState('Vector');
+
+  console.log(activePage);
 
   return (
     <div className={styles.page}>
@@ -32,7 +35,7 @@ function App() {
         </div>
       </header>
       <ul className={styles.menu}>
-        {Object.keys(PAGES).map((page) => (
+        {Object.keys(pages).map((page) => (
           <li
             className={classNames(styles.menuItem, {
               [styles['menuItem--active']]: page === activePage,
@@ -44,9 +47,7 @@ function App() {
           </li>
         ))}
       </ul>
-      <div className={styles.content}>
-        <Point />
-      </div>
+      <div className={styles.content}>{(pages as any)[activePage]()}</div>
     </div>
   );
 }
